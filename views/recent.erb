@@ -1,0 +1,22 @@
+<div data-role="page" id="recent">
+	<div data-role="header"><h1>Moves API Demo - Recent Activity</h1></div>
+	<div data-role="content">
+		<div id="chart"></div>
+
+		<ul data-role="listview" data-inset="true">
+		<% for day in @json.reverse %>
+			<li>
+				<%= format_date(day["date"]) %>
+				<% unless day["summary"].nil? %>
+					<% for activity in day["summary"].find_all { |a| a["activity"] == "wlk"} %>
+						 <p class="ui-li-aside"><%= activity["steps"] %> steps</p>
+					<% end %>
+				<% end %>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+	<script>
+		visualize([<%= @steps.join(",") %>]);
+	</script>
+</div>
