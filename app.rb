@@ -26,7 +26,7 @@ get "/" do
   if !session[:access_token].nil?
     erb :index
   else
-    @moves_authorize_uri = client.auth_code.authorize_url(:redirect_uri => redirect_uri, :scope => 'summary')
+    @moves_authorize_uri = client.auth_code.authorize_url(:redirect_uri => redirect_uri, :scope => 'activity')
     erb :signin
   end
 end
