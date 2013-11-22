@@ -59,9 +59,7 @@ get '/moves/profile' do
 end
 
 get '/moves/recent' do
-  from = (Date.today - 6).strftime("%Y%m%d")
-  to = Date.today.strftime("%Y%m%d")
-  @json = access_token.get("/api/v1/user/summary/daily?from=#{from}&to=#{to}").parsed
+  @json = access_token.get("/api/v1/user/summary/daily?pastDays=7").parsed
   @steps = @json.map { |day|
     unless day["summary"].nil?
       (day["summary"].find { |a| a["activity"] == "wlk"})["steps"]
