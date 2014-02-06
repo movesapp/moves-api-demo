@@ -8,7 +8,7 @@
 			<li>
 				<%= format_date(day["date"]) %>
 				<% unless day["summary"].nil? %>
-					<% for activity in day["summary"].find_all { |a| a["activity"] == "wlk"} %>
+					<% for activity in day["summary"].find_all { |a| a["group"] == "walking"} %>
 						 <p class="ui-li-aside"><%= activity["steps"] %> steps</p>
 					<% end %>
 				<% end %>
