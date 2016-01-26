@@ -1,4 +1,4 @@
-This is a sample app that demostrates how to connect to [Moves](https://moves-app.com).
+This is a sample app that demonstrates how to connect to [Moves](https://moves-app.com).
 
 Make sure you have [Bundler](http://gembundler.com/) installed. Then install the dependencies with `bundle install` on the command line.
 
